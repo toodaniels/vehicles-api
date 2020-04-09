@@ -5,8 +5,5 @@ const UserController = require('../controllers/user.controller');
 router.get('/', (req, res) => res.send("Welcome to Vehicles API v1"));
 router.post('/signup', UserController.signUp);
 router.post('/signin', UserController.signIn);
-// To test
-router.get('/users', UserController.index);
-
 
 module.exports = router;
