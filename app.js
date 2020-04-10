@@ -5,12 +5,15 @@ const jwt = require('express-jwt');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const mongoose = require('mongoose');
-
+const cors = require('cors')
 const public = require('./routes/public');
 const auth = require('./routes/auth');
 
-var app = express();
+const dotenv = require('dotenv');
+dotenv.config();
 
+var app = express();
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
