@@ -45,7 +45,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-mongoose.connect("mongodb+srv://ps0_system:vehicles@cluster0-azyhh.mongodb.net/test?retryWrites=true&w=majority", { 
+mongoose.connect(process.env.MONGO_URL, { 
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

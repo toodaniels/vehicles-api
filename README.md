@@ -19,6 +19,7 @@ Crear archivo con variables de entorno:
 Editar archivo .env:
 
 	PORT=5000
+    MONGO_URL="Mongo url"
 
 Ejecutar :
 		
