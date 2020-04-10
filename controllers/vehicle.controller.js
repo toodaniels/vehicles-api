@@ -24,10 +24,11 @@ const createVehicle = async (req, res) =>{
 
 const updateVehicle =  async (req, res) =>{
     const { user : { _id } } = req;
+    const { params : { plate } } = req;
     var vehicleData =  req.body;
     vehicleData.location = { type : "Point", coordinates : vehicleData.location };
     try {
-        await Vehicle.updateOne( { plate : vehicleData.plate, owner: _id } , vehicleData);
+        await Vehicle.updateOne( { plate, owner: _id } , vehicleData);
         res.status(204).json('success');
     }catch(err) {
         res.status(400).json(err);
@@ -37,7 +38,6 @@ const updateVehicle =  async (req, res) =>{
 const getVehicle = async (req, res)=>{
     const { user : { _id } } = req;
     var { plate } =  req.params;
-
     try {
         const vehicleResult = await Vehicle.findOne( { plate, owner: _id });
         const vehicle = await vehicleResult.toObject();
