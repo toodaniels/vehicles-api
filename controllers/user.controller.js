@@ -1,13 +1,6 @@
 var User = require('../models/user.model');
 const jwt = require('../utils/jwt'); 
 
-const getUsers = (req, res)=>{
-    User.find()
-    .then((usersResult) =>{
-        res.json(usersResult);
-    })
-}
-
 const signUp =  async ( req, res ) =>{
     const { body } = req;
     try {
@@ -32,7 +25,6 @@ const signIn = async ( req, res ) =>{
 }
 
 module.exports = {
-    index: getUsers,
     signUp,
     signIn
 }
